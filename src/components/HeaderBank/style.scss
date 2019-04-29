@@ -1,0 +1,8 @@
+@import '../../../default/common/defaultVariable.scss';
+
+.header-wrapper{
+    @extend %flex-centering;
+    justify-content: space-evenly;
+    background-color: $primary-color;
+    height: $header-height;
+}
