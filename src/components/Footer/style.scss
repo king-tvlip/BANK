@@ -1,9 +1,8 @@
 @import '../../../default/common/defaultVariable.scss';
-
-.header-wrapper {
+.footer-bank {
     @extend %flex-centering;
-    justify-content: space-evenly;
-    background-color: $primary-color;
     height: $header-height;
+    background-color: $primary-color;
+    color: $secondary-color;
     flex: 0 0 auto;
 }

@@ -1,0 +1,10 @@
+@import '../../../default/common/defaultVariable.scss';
+
+.wrapper-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    flex: 1 0 auto;
+    background-color: rgba(141, 129, 129, 0.3);
+}

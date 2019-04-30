@@ -3,9 +3,10 @@ import SearchPanelBankView from './view';
 
 class SearchPanelBank extends PureComponent {
     render() {
-        return (<>
-                    <SearchPanelBankView />
-                </>
+        return (
+            <>
+                <SearchPanelBankView />
+            </>
         );
     }
 }

@@ -1,0 +1,22 @@
+@import '../../../../default/common/defaultVariable.scss';
+.description-bank {
+    @extend %flex-centering;
+    flex-direction: column;
+    width: 80%;
+    padding-bottom: 450px;
+}
+.bank-name {
+    @extend %flex-centering;
+    height: 50px;
+    font: {
+        size: 30px;
+        weight: bold;
+    }
+}
+.bank-mission {
+    height: 50px;
+    font: {
+        size: 20px;
+        weight: bold;
+    }
+}

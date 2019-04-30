@@ -1,0 +1,31 @@
+@import '../../../default/common/defaultVariable.scss';
+
+.wraper-navigation-bank {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 600px;
+    width: max-content;
+}
+.navigation-bank {
+    height: 40px;
+    @extend %flex-centering;
+    border: 2px solid $secondary-color;
+    background-color: $primary-color;
+    color: $secondary-color;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(122, 63, 63, 0.938);
+        box-shadow: -1px -1px 38px 10px rgba(0, 0, 0, 0.71);
+    }
+}
+.active {
+    background-image: radial-gradient(
+            100% 100% at 100% 100%,
+            rgba(134, 54, 54, 0.9),
+            rgba(184, 91, 91, 0)
+        ),
+        linear-gradient(rgba(202, 74, 74, 0.4), rgba(182, 64, 64, 0.3));
+}
