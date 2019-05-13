@@ -1,0 +1,16 @@
+@import '../../../../default/common/defaultVariable.scss';
+.wrapper-form {
+    @extend %flex-centering;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+}
+.credit-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.submit {
+    width: 100px;
+}

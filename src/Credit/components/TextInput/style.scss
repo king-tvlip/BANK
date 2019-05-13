@@ -1,0 +1,21 @@
+@import '../../../../default/common/defaultVariable.scss';
+
+.wrapper-text-input {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    padding: 10px;
+    height: 30px;
+}
+.form-control {
+    width: 200px;
+}
+.label-form {
+    width: 200px;
+}
+.text-danger {
+    position: absolute;
+    color: red;
+    bottom: -6px;
+    padding-left: 130px;
+}
