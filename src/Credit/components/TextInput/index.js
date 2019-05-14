@@ -19,7 +19,6 @@ const TextInput = ({
 }) => {
     const error = errors[name];
     const touch = touched[name];
-
     return (
         <div className={cx('wrapper-text-input')}>
             <Label className={cx('label-form')} htmlFor={name} error={error}>

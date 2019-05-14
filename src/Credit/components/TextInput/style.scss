@@ -2,20 +2,34 @@
 
 .wrapper-text-input {
     display: flex;
+    flex-direction: column;
     position: relative;
     justify-content: center;
-    padding: 10px;
-    height: 30px;
+    padding: 30px;
 }
 .form-control {
     width: 200px;
+    height: 25px;
+    padding-right: 30px;
+    padding: 5px;
+    color: #ffe4c9;
+    border: 2px solid #ffe4c9;
+    background-color: $primary-color;
 }
 .label-form {
     width: 200px;
+    font: {
+        weight: bold;
+    }
+    color: #1f1d1e;
 }
+::placeholder {
+    color: #fffefe7a;
+    opacity: 1; /* Firefox */
+}
+
 .text-danger {
     position: absolute;
     color: red;
-    bottom: -6px;
-    padding-left: 130px;
+    bottom: 8px;
 }

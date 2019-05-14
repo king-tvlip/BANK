@@ -2,15 +2,37 @@
 .wrapper-form {
     @extend %flex-centering;
     flex-direction: column;
-    width: 80%;
+    width: 90%;
     height: 100%;
+}
+.wrapper-credit-form {
+    border: 2px solid black;
+    height: 600px;
+    background-color: rgba(122, 63, 63, 0.356);
 }
 .credit-form {
     display: flex;
-    flex-direction: column;
+    position: relative;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    height: 500px;
+    width: 580px;
 }
 .submit {
-    width: 100px;
+    position: absolute;
+    width: 150px;
+    bottom: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 40px;
+    @extend %flex-centering;
+    border: 2px solid $secondary-color;
+    background-color: $primary-color;
+    color: $secondary-color;
+    padding: 5px;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(122, 63, 63, 0.938);
+    }
 }
