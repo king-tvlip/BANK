@@ -36,7 +36,7 @@ const CreditForm = props => {
                 }}
                 onSubmit={(values, actions) => {
                     setTimeout(() => {
-                        alert(JSON.stringify(values, null, 2));
+                        alert(`Клиенту ${values.firstName} ${values.lastName} выдан кредит на сумму: ${values.money} рублей!!!!`)
                         actions.setSubmitting(false);
                     }, 1000);
                 }}
