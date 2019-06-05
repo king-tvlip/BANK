@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import * as Yup from 'yup';
 import isEmpty from 'lodash/isEmpty';
 import TextInput from '../TextInput';
 import classnames from 'classnames/bind';
 import styles from './style.scss';
+import { mapForm } from '../../../store/actions/sidesFunctions';
+import { set } from 'immutable';
 
 const cx = classnames.bind(styles);
 
 const CreditForm = props => {
+    console.log(props)
     return (
         <div className={cx('wrapper-form')}>
             <Formik
@@ -32,16 +38,19 @@ const CreditForm = props => {
                     passportNumber: '',
                     bornData: '1997-01-01',
                     location: '',
-                    money: 1000
+                    money: 1000,
+                    percent: 9.9,
+                    term: 1,
+                    currency: "EUR"
                 }}
                 onSubmit={(values, actions) => {
                     setTimeout(() => {
-                        alert(`Клиенту ${values.firstName} ${values.lastName} выдан кредит на сумму: ${values.money} рублей!!!!`)
-                        actions.setSubmitting(false);
+                        props.history.push('/acceptance')
+                        props.mapForm(values);
                     }, 1000);
                 }}
-                render={({ values, touched, errors, dirty, isSubmitting }) => (
-                    <Form className={cx('wrapper-credit-form')}>
+                render={({ values, touched, errors, dirty }) => (
+                    <Form id='form' className={cx('wrapper-credit-form')}>
                         <div className={cx('credit-form')}>
                             <Field
                                 type="text"
@@ -88,13 +97,37 @@ const CreditForm = props => {
                             <Field
                                 type="number"
                                 name="money"
-                                label="*Сумма займа (руб.)"
+                                label="*Сумма займа"
                                 placeholder="Введите сумму"
                                 component={TextInput}
                             />
+                            <Field
+                                type="number"
+                                name="percent"
+                                label="*Процент займа (%)"
+                                disabled
+                                component={TextInput}
+                            />
+                            <div className={cx('currency-wrapper')}>
+                                <Field name='currency' component="select">
+                                    <option value="EUR">EUR</option>
+                                    <option value="DOL">DOL</option>
+                                    <option value="RUB">RUB</option>
+                                </Field>
+                            </div>
+                            <div className={cx('loan-term')}>
+                                <label className={cx('title')} >*Срок займа (лет)</label>
+                                <Field name='term' component="select">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="5">5</option>
+                                </Field>
+                            </div>
+
                             <button type="submit" className={cx('submit')}>
                                 Отправить
                             </button>
+
                         </div>
                     </Form>
                 )}
@@ -102,4 +135,19 @@ const CreditForm = props => {
         </div>
     );
 };
-export default CreditForm;
+
+const mapStateToProps = state => {
+    return {
+        isSubmitting: state.formReducer.isSubmitting
+    };
+};
+const mapDispatchToProps = {
+    mapForm
+};
+
+export default withRouter(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(CreditForm)
+); 

@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import SearchPanelBank from '../components/SearchPanelBank';
 import HeaderBank from '../components/HeaderBank';
 import NavigationBank from '../components/NavigationBank';
@@ -21,4 +23,15 @@ const Credit = props => {
     );
 };
 
-export default Credit;
+const mapStateToProps = state => {
+    return {
+        isSubmitting: state.formReducer.isSubmitting
+    };
+};
+
+export default withRouter(
+    connect(
+        mapStateToProps
+    )(Credit)
+);
+
